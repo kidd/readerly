@@ -25,8 +25,9 @@
                 :depends-on ("lib")
                 :components
                 ((:file "app")
+                 (:file "models")
                  (:file "readerly" :depends-on ("app"))
-                 (:file "controller" :depends-on ("app")))))
+                 (:file "controller" :depends-on ("app" "models")))))
   :description ""
   :long-description
   #.(with-open-file (stream (merge-pathnames
