@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>New toread</title>
+  </head>
+  <body>
+    <form method="post" id="new-game" action="/toreads">
+      <fieldset>
+        <label for="id">id</label>
+        <input type="text" name="id" id="id" />
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" />
+        <label for="url">url</label>
+        <input type="text" name="url" id="url" />
+        <label for="owner">owner</label>
+        <input type="text" name="owner" id="owner" />
+        <label for="finished">finished</label>
+        <input type="text" name="finished" id="finished" />
+      </fieldset>
+      <input type="submit" name="winner" id="winner" />
+    </form>
+  </body>
+</html>

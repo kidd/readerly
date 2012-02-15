@@ -36,11 +36,26 @@
 @url GET "/toreads"
 (defun show-toreads (params)
   @ignore params
-  (render "toreads/index.emb" (readerly.models:get-all-toreads)))
+  (let ((a (readerly.models:get-all-toreads)))
+   (render "toreads/index.emb" a)))
+
+@url POST "/toreads"
+(defun create-toreads (params)
+  (let ((current-toread (make-instance 'toread
+                                       :id (parse-integer (getf params :|id|))
+                                       :title (getf params :|title|)
+                                       :url (getf params :|url|)
+                                       :owner (getf params :|owner|))))
+    (clsql:update-records-from-instance current-toread)
+    (redirect-to "/toreads")))
+
+@url GET "/toreads/new"
+(defun new-toreads (params)
+  (render "toreads/new.emb" params))
+
 
 @url GET "/create-db"
 (defun create-db (params)
   @ignore params
   (truncate-database)
-;  (create-view-from-class) 'toread
-  )
+  (create-view-from-class 'toread))

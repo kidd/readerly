@@ -10,11 +10,9 @@
 
 ;(cl-annot:enable-annot-syntax)
 
-
+@export
 (defun get-all-toreads ()
- ;  (clsql:select toread)
-  "hola"
-  )
+  (clsql:select 'toread))
 
 @export
 (defun hola ()
@@ -26,20 +24,20 @@
     :db-kind :key
     :db-constraints :not-null
     :type integer
-    :initarg :id)))
-;;    (title
-;;     :accessor title
-;;     :type (string 50)
-;;     :initarg :title)
-;;    (url
-;;     :accessor url
-;;     :type (string 250)
-;;     :initarg :url)
-;;    (owner
-;;     :accessor owner
-;;     :type (string 30)
-;;     :initarg :owner)
-;;    (finished
-;;     :accessor finished
-;;     :type boolean
-;;     :initarg :finished)))
+    :initarg :id)
+   (title
+    :accessor title
+    :type (string 50)
+    :initarg :title)
+   (url
+    :accessor url
+    :type (string 250)
+    :initarg :url)
+   (owner
+    :accessor owner
+    :type (string 30)
+    :initarg :owner)
+   (finished
+    :accessor finished
+    :type boolean
+    :initarg :finished)))
